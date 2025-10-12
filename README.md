@@ -11,11 +11,12 @@
 - 工具：Git、JUnit 5、IntelliJ IDEA
 
 ## 目录结构说明
-- `weekN/`：第N周学习内容（如`week1/`对应第1周），按主题分目录（如`reflection/`反射、`collection/`集合）
+- `JavaBackend/`：按照章节记录学习情况（按主题分目录（如`reflection/`反射、`collection/`集合）
 - `algorithm/daily/`：每日LeetCode题解（按日期命名）
 - `algorithm/topic/`：按题型分类的算法题解（如数组、链表）
 - `docs/`：项目文档（计划概述、学习笔记、架构图等）
 
 ## 进度跟踪
-- 总周期：8个月（32周）
+- 总周期：8个月（32周）算法18个章节 java后端19个章节
 - 当前进度：第1周（更新于2025-9-30）
+- 当前进度：第2周（更新于2025-10-12） 算法0/18 后端2/19
