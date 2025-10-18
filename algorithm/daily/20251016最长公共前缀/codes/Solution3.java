@@ -1,24 +1,32 @@
 class Solution3 {
     public String longestCommonPrefix(String[] strs) {
+        if (strs[0] == "" || strs.length == 0) {
+            return "";
+        }
+        String firstStr = strs[0];
+        // 检查第一个字符串是否为空
+        if (firstStr.isEmpty()) {
+            return "";
+        }
         int index = 0;
-        String res = "";
-        char tmp = strs[0].charAt(0);
-        while(true){
+        String result = "";
+        while(index < firstStr.length()){
+            char currentChar = firstStr.charAt(index);
             boolean isTrue = true;
             for (String str:strs){
-                if (str.charAt(index) != tmp) {
+                if (index >= str.length() || str.charAt(index) != currentChar) {
                     isTrue = false;
+                    break;
                 }
             }
             if(isTrue){
-                res += tmp;
+                result += currentChar;
                 index ++;
-                tmp = strs[0].charAt(index);
             }else{
                 break;
             }
         }
-        return res;
+        return result;
     }
     public static void main(String[] args) {
         String[] strsTest = {"flow","flosdad","flwadaw"};
