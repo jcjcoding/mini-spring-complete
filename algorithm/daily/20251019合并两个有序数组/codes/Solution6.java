@@ -22,7 +22,7 @@ public class Solution6 {
         }
         for(int i = resNum;i< m+n; i++){
             res[i] = nums1[pointer1];
-            System.out.println("nums "+nums1[pointer1]+" po "+pointer1+" res "+res[resNum]+" resNum "+resNum);
+            //System.out.println("nums "+nums1[pointer1]+" po "+pointer1+" res "+res[resNum]+" resNum "+resNum);
             pointer1++; 
         }
         System.arraycopy(res, 0, nums1,0, n+m);
