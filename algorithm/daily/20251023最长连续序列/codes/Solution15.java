@@ -2,34 +2,35 @@ import java.util.*;
 
 public class Solution15 {
     public int longestConsecutive(int[] nums) {
-        Map<Integer,Integer> hashMap = new HashMap<>();
-        for(int i:nums){
-            hashMap.put(i, 1);
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
-        int lastOne = -999999;
-        boolean start = false;
-        int max = 1;
-        int count = 1;
-        for(Map.Entry<Integer,Integer> entry:hashMap.entrySet()){
-            System.out.println(entry.getKey());
-            if(!start){
-                lastOne = entry.getKey();
-                start = true;
-                continue;
-            }
 
-            if(lastOne == entry.getKey()-1){
-                count ++;
-            }else{
-                count = 1;
-            }
-            if(count > max){
-               max = count;
-            }
-            
-            lastOne = entry.getKey();
+        Map<Integer, Integer> hashMap = new HashMap<>();
+        for (int num : nums) {
+            hashMap.put(num, 1);
         }
-        return max;
+
+        List<Integer> keys = new ArrayList<>(hashMap.keySet());
+        Collections.sort(keys);
+
+        int maxLen = 1; 
+        int currentLen = 1; 
+
+        for (int i = 1; i < keys.size(); i++) {
+            
+            if (keys.get(i) == keys.get(i - 1) + 1) {
+                currentLen++;
+                
+                if (currentLen > maxLen) {
+                    maxLen = currentLen;
+                }
+            } else {
+                currentLen = 1;
+            }
+        }
+
+        return maxLen;
     }
     public static void main(String[] args) {
         int[] nums = {100,4,200,1,3,2};
