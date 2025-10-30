@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 1. 屏蔽 HikariCP 所有 DEBUG 日志（包括连接池、连接关闭等细节） -->
+    <logger name="com.zaxxer.hikari" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- 2. 单独屏蔽 pool 子包的 DEBUG 日志（解决关闭阶段的输出） -->
+    <logger name="com.zaxxer.hikari.pool" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- 3. 单独保留 HikariDataSource 的 INFO 级日志（启动/关闭信息） -->
+    <logger name="com.zaxxer.hikari.HikariDataSource" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- 控制台输出配置（必须有，否则日志无法打印） -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 根日志级别（默认 INFO，避免其他框架 DEBUG 日志干扰） -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
