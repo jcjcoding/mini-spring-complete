@@ -1,11 +1,21 @@
-List
-ArrayList	动态数组	查询快（索引访问）、增删慢（需移动元素）、非线程安全、效率高	读多写少的场景（最常用）
+# List
+## ArrayList	
+- 动态数组	
+- 查询快(索引访问)、增删慢(需移动元素)、非线程安全、效率高	
+- 读多写少的场景(最常用)
 
-LinkedList	双向链表	查询慢（需遍历）、增删快（仅修改节点引用）、非线程安全	写多读少（频繁增删）的场景
+## LinkedList	
+- 双向链表	
+- 查询慢(需遍历v、增删快（仅修改节点引用)、非线程安全	
+- 写多读少(频繁增删)的场景
 
-Vector	动态数组	线程安全（方法加 synchronized）、效率低、已被 ArrayList 替代	多线程环境（建议用 CopyOnWriteArrayList 替代）
+## Vector	
+- 动态数组	
+- 线程安全(方法加 synchronized)、效率低
+- 多线程环境(建议用 CopyOnWriteArrayList 替代)
 
-List<String> list = new ArrayList<>();
+```Java
+    List<String> list = new ArrayList<>();
     // 1. 增：添加元素
         list.add("Apple");          // 尾部添加
         list.add(0, "Banana");      // 指定索引添加（索引越界会抛 IndexOutOfBoundsException）
@@ -27,7 +37,7 @@ List<String> list = new ArrayList<>();
         list.removeAll(List.of("Durian")); // 批量删除
         list.clear(); // 清空列表
 
-List<String> fruits = List.of("Apple", "Banana", "Cherry");
+    List<String> fruits = List.of("Apple", "Banana", "Cherry");
 
     // 方式 1：普通 for 循环（支持索引操作，适合需要下标场景）
         for (int i = 0; i < fruits.size(); i++) {
